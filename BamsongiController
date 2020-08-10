@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BamsongiController : MonoBehaviour
+{
+    public Rigidbody rb;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+    public void Shoot(Vector3 dir)
+    {
+        rb.AddForce(dir);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Shoot(new Vector3(0, 200f, 2000f));
+       
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        rb.isKinematic = true;
+        GetComponent<ParticleSystem>().Play();
+    }
+
+}
